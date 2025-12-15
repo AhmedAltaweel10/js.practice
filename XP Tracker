@@ -1,0 +1,25 @@
+xpTracker = { 
+skills : {
+CODE : {level: 0, xp: 0},
+FIT: {level: 0, xp: 0},
+INT: {level: 0, xp: 0},
+FIN: {level: 0, xp: 0},
+HEAL: {level: 0, xp: 0},
+EXPLORE: {level: 0, xp: 0}, 
+ADMIN: {level: 0, xp: 0}, 
+SOCIAL: {level:0, xp: 0}
+},
+addXP(skillId, amount){
+this.skillId.xp += amount;
+},
+levelUp(){
+this.skillId.level += 1;
+this.skillId.xp = 0; 
+},
+xpToLevel{
+if (this.skillId.xp > 300){
+levelUp()
+},
+log[];
+}
+
