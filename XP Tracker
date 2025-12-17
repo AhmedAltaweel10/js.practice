@@ -1,25 +1,23 @@
 xpTracker = { 
 skills : {
-CODE : {level: 0, xp: 0},
-FIT: {level: 0, xp: 0},
-INT: {level: 0, xp: 0},
-FIN: {level: 0, xp: 0},
-HEAL: {level: 0, xp: 0},
-EXPLORE: {level: 0, xp: 0}, 
-ADMIN: {level: 0, xp: 0}, 
-SOCIAL: {level:0, xp: 0}
+CODE : {level: 0, xp: 0, xpToNext: 0},
+FIT: {level: 0, xp: 0, xpToNext: 0},
+INT: {level: 0, xp: 0, xpToNext: 0},
+FIN: {level: 0, xp: 0, xpToNext: 0},
+HEAL: {level: 0, xp: 0, xpToNext: 0},
+EXPLORE: {level: 0, xp: 0, xpToNext: 0}, 
+ADMIN: {level: 0, xp: 0}, xpToNext: 0, 
+SOCIAL: {level:0, xp: 0, xpToNext: 0}
 },
-addXP(skillId, amount){
-this.skillId.xp += amount;
+addXP: function(skill, amount){
+if (!this.skills[skill]) {
+    return `Unknown skill: ${skill}`;} 
+    if (typeof amount !== 'number' || amount <=0){
+return 'Amount must be a positive number'}
+    }
+const add = this.skills[skill]; 
+add.xp += amount;
 },
-levelUp(){
-this.skillId.level += 1;
-this.skillId.xp = 0; 
-},
-xpToLevel{
-if (this.skillId.xp > 300){
-levelUp()
-},
-log[];
-}
-
+levelUp: function {
+for (skill in xpTracker.skills){
+while (xpTracker.skills[skill]
