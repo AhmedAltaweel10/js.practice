@@ -1,23 +1,26 @@
 xpTracker = { 
 skills : {
-CODE : {level: 0, xp: 0, xpToNext: 0},
-FIT: {level: 0, xp: 0, xpToNext: 0},
-INT: {level: 0, xp: 0, xpToNext: 0},
-FIN: {level: 0, xp: 0, xpToNext: 0},
-HEAL: {level: 0, xp: 0, xpToNext: 0},
-EXPLORE: {level: 0, xp: 0, xpToNext: 0}, 
-ADMIN: {level: 0, xp: 0}, xpToNext: 0, 
-SOCIAL: {level:0, xp: 0, xpToNext: 0}
+CODE : {level: 1, xp: 0, xpToNext: 200},
+FIT: {level: 1, xp: 0, xpToNext: 200},
+INT: {level: 1, xp: 0, xpToNext: 200},
+FIN: {level: 1, xp: 0, xpToNext: 200},
+HEAL: {level: 1, xp: 0, xpToNext: 200},
+EXPLORE: {level: 1, xp: 0, xpToNext: 200}, 
+ADMIN: {level: 1, xp: 0, xpToNext: 200}, 
+SOCIAL: {level: 1, xp: 0, xpToNext: 200}
 },
 addXP: function(skill, amount){
 if (!this.skills[skill]) {
     return `Unknown skill: ${skill}`;} 
     if (typeof amount !== 'number' || amount <=0){
 return 'Amount must be a positive number'}
-    }
 const add = this.skills[skill]; 
 add.xp += amount;
 },
-levelUp: function {
-for (skill in xpTracker.skills){
-while (xpTracker.skills[skill]
+levelUp: function(skillId){
+while (this.skills[skillId].xp >= this.skills[skillId].xpToNext){ 
+this.skills[skillId].xp -= this.skills[skillId].xpToNext;
+this.skills[skillId].level += 1;
+this.skills[skillId].xpToNext *= 1.02;}
+}
+}
