@@ -16,11 +16,15 @@ if (!this.skills[skill]) {
 return 'Amount must be a positive number'}
 const add = this.skills[skill]; 
 add.xp += amount;
+this.levelUp(skill)
 },
 levelUp: function(skillId){
 while (this.skills[skillId].xp >= this.skills[skillId].xpToNext){ 
 this.skills[skillId].xp -= this.skills[skillId].xpToNext;
 this.skills[skillId].level += 1;
 this.skills[skillId].xpToNext *= 1.02;}
+},
+status: function (){
+    console.log(this.skills);
 }
 }
